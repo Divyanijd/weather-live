@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 import './gallery.css';
 
 const photos = [
-  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 84.png' },
-  { title: 'Mountain', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 85.png' },
-  { title: 'Rain', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 86.png' },
-  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 87.png' },
-  { title: 'Storms On Land', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 88.png' },
-  { title: 'Morbi Vel Tellus Ac Risus', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 90.png' },
-  { title: 'Phasellus Ut Ex Ultrices', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 89.png' },
-  { title: 'Fusce Tempor Orci', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 91.png' },
-  { title: 'Sunrises And Sunsets', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 92.png' },
-  { title: 'Aenean Commodo Orci', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 94.png' },
-  { title: 'Rainbows, Halos & Reflections', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 93.png' },
-  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 95.png' },
-  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 96.png' },
-  { title: 'Mountain', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 98.png' },
-  { title: 'Rain', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 97.png' },
-  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: 'src/assets/Rectangle 99.png' },
+  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: '/Rectangle84.png' },
+  { title: 'Mountain', location: 'India', time: '1 Year Ago', image: '/Rectangle85.png' },
+  { title: 'Rain', location: 'India', time: '1 Year Ago', image: '/Rectangle86.png' },
+  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: '/Rectangle87.png' },
+  { title: 'Storms On Land', location: 'India', time: '1 Year Ago', image: '/Rectangle88.png' },
+  { title: 'Morbi Vel Tellus Ac Risus', location: 'India', time: '1 Year Ago', image: '/Rectangle90.png' },
+  { title: 'Phasellus Ut Ex Ultrices', location: 'India', time: '1 Year Ago', image: '/Rectangle89.png' },
+  { title: 'Fusce Tempor Orci', location: 'India', time: '1 Year Ago', image: '/Rectangle91.png' },
+  { title: 'Sunrises And Sunsets', location: 'India', time: '1 Year Ago', image: '/Rectangle92.png' },
+  { title: 'Aenean Commodo Orci', location: 'India', time: '1 Year Ago', image: '/Rectangle94.png' },
+  { title: 'Rainbows, Halos & Reflections', location: 'India', time: '1 Year Ago', image: '/Rectangle93.png' },
+  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: '/Rectangle95.png' },
+  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: '/Rectangle96.png' },
+  { title: 'Mountain', location: 'India', time: '1 Year Ago', image: '/Rectangle98.png' },
+  { title: 'Rain', location: 'India', time: '1 Year Ago', image: '/Rectangle97.png' },
+  { title: 'Lightning', location: 'India', time: '1 Year Ago', image: '/Rectangle99.png' },
 ];
 
 const Gallery = () => {
