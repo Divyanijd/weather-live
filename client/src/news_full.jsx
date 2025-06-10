@@ -28,14 +28,14 @@ const news_full = () => {
       </div>
 
       <div className="col-span-2 row-span-2 col-start-8 row-start-2 p-4">
-        <img src="src/assets/Rectangle 112.png" alt="Placeholder" className="w-60 h-40 object-cover" />
+        <img src="/assets/Rectangle 112.png" alt="Placeholder" className="w-60 h-40 object-cover" />
       </div>
 
       <div className="col-span-3 row-span-2 col-start-5 row-start-4 p-4">
         <b>Sorem ipsum dolor sit amet ipsum, consectetur</b> <br />
         <br /> Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.</div>
       <div className="col-span-2 row-span-2 col-start-8 row-start-4 p-4">
-        <img src="src/assets/Rectangle 113.png" alt="Placeholder" className="w-60 h-40 object-cover" />
+        <img src="/assets/Rectangle 113.png" alt="Placeholder" className="w-60 h-40 object-cover" />
 
       </div>
       <div className="col-span-3 row-span-2 col-start-5 row-start-6 p-4">
@@ -43,18 +43,18 @@ const news_full = () => {
         <br /> Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
       </div>
       <div className="col-span-2 row-span-2 col-start-8 row-start-6 p-4">
-        <img src="src/assets/Rectangle 114.png" alt="Placeholder" className="w-60 h-40 object-cover" />
+        <img src="/assets/Rectangle 114.png" alt="Placeholder" className="w-60 h-40 object-cover" />
       </div>
       <div className="col-span-3 row-span-2 col-start-5 row-start-8 p-4">
         <b>Sorem ipsum dolor sit amet ipsum, consectetur</b> <br />
         <br /> Sorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
       </div>
       <div className="col-span-2 row-span-2 col-start-8 row-start-8 p-4">
-        <img src="src/assets/Rectangle 115.png" alt="Placeholder" className="w-60 h-40 object-cover" />
+        <img src="/assets/Rectangle 115.png" alt="Placeholder" className="w-60 h-40 object-cover" />
 
       </div>
       <div className="col-span-4 row-span-5 col-start-1 row-start-4 p-2">
-        <img src="src/assets/Rectangle 106.png" alt="Placeholder" className="w-full h-full object-cover" />
+        <img src="/assets/Rectangle 106.png" alt="Placeholder" className="w-full h-full object-cover" />
 
       </div>
       <div className="col-span-4 row-span-3 row-start-10 text-justify">
