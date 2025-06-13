@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import sunnyIcon from "/src/assets/sunny.png";
 import cloudyIcon from "/src/assets/cloudy.png";
-import bg1 from "/src/assets/bg1.png";
-import bg2 from "/src/assets/bg2.png";
+import bg1 from "/assets/bg1.png";
+import bg2 from "/assets/bg2.png";
 
 const API_KEY = "ae4b63eb01eb14494ecc1e6a53bf5019";
 
