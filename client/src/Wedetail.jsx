@@ -5,7 +5,6 @@ import cloudRainImg from "/assets/vectw.png";
 import dropletsImg from "/assets/vecw.png";
 import { CloudSun, CloudRain, Cloud } from "lucide-react";
 
-const API_KEY = "342f06e3f0da95740ac1916d3f8ad59e";
 const CITY = "surat";
 
 export default function WeaDetail() {
@@ -14,43 +13,35 @@ export default function WeaDetail() {
 
   useEffect(() => {
     async function fetchWeather() {
-      const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${CITY}&appid=${API_KEY}&units=metric`
-      );
-      const data = await res.json();
-      setWeather(data);
+      try {
+        const res = await fetch(`http://localhost:3001/api/weather/today?city=${CITY}`);
+        const data = await res.json();
+        setWeather(data);
+      } catch (error) {
+        console.error("Failed to fetch weather:", error);
+      }
     }
 
     async function fetchForecast() {
-      const res = await fetch(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${CITY}&appid=${API_KEY}&units=metric`
-      );
-      const data = await res.json();
-      setForecast(data.list.slice(0, 5));
+      try {
+        const res = await fetch(`http://localhost:3001/api/weather/forecast?city=${CITY}`);
+        const data = await res.json();
+        setForecast(data.forecast.slice(0, 5));
+      } catch (error) {
+        console.error("Failed to fetch forecast:", error);
+      }
     }
 
     fetchWeather();
     fetchForecast();
   }, []);
 
-  const formatTime = (timestamp) => {
-    const date = new Date(timestamp * 1000);
-    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-  };
-
   if (!weather) return <div className="text-white p-10">Loading weather data...</div>;
-
-  const sunrise = formatTime(weather.sys.sunrise);
-  const sunset = formatTime(weather.sys.sunset);
-  const temperature = Math.round(weather.main.temp);
-  const feelsLike = Math.round(weather.main.feels_like);
-  const windSpeed = Math.round(weather.wind.speed * 3.6); // m/s to km/h
-  const humidity = weather.main.humidity;
 
   return (
     <div
       className="relative bg-cover bg-center min-h-screen px-4 py-10 text-white mt-20"
-      style={{ backgroundImage: "url('/assets/bgg.png')" }}
+      style={{ backgroundImage: "url('/src/assets/bgg.png')" }}
     >
       <div className="max-w-7xl mx-auto space-y-8 mt-10">
         <div className="text-center">
@@ -61,7 +52,8 @@ export default function WeaDetail() {
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="w-full lg:w-1/2 space-y-6">
             <div className="flex flex-wrap justify-center gap-6">
-              {[{ day: "Sunrise", time: sunrise, background: sunriseImg }, { day: "Sunset", time: sunset, background: sunsetImg }].map(
+              {[{ day: "Sunrise", time: weather.sunrise, background: sunriseImg },
+                { day: "Sunset", time: weather.sunset, background: sunsetImg }].map(
                 (card, index) => (
                   <div
                     key={index}
@@ -81,15 +73,15 @@ export default function WeaDetail() {
               )}
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-around gap-6 p-4 bg-white/10 backdrop-blur-lg rounded-xl shadow-xl sm:w-100 sm:ml-25">
+            <div className="flex flex-col sm:flex-row justify-around gap-6 p-4 bg-white/10 backdrop-blur-lg rounded-xl shadow-xl">
               <div className="flex flex-col items-center gap-6 text-white">
-                <div className="items-center gap-1 flex">
+                <div className="flex items-center gap-2">
                   <img src={cloudRainImg} alt="Wind" className="w-10 h-10" />
-                  <span>Wind {windSpeed} km/h</span>
+                  <span>Wind {weather.wind}</span>
                 </div>
-                <div className="items-center gap-1 flex">
+                <div className="flex items-center gap-2">
                   <img src={dropletsImg} alt="Humidity" className="w-10 h-10" />
-                  <span>Humidity {humidity}%</span>
+                  <span>Humidity {weather.humidity}</span>
                 </div>
               </div>
             </div>
@@ -98,27 +90,25 @@ export default function WeaDetail() {
           <div className="w-full lg:w-1/2">
             <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 shadow-xl h-full">
               <div className="flex flex-col gap-10">
-                <div>
-                  <p className="text-4xl font-bold">
-                    {temperature}°C <span className="text-2xl">Feels Like {feelsLike}°C</span>
-                  </p>
-                </div>
+                <p className="text-4xl font-bold">
+                  {weather.temp} <span className="text-2xl">Feels Like {weather.feels_like}</span>
+                </p>
 
                 <div className="flex overflow-x-auto gap-6 pb-2 scrollbar-hide">
                   {forecast.map((item, i) => (
                     <div key={i} className="flex flex-col items-center text-white min-w-[80px]">
                       <div className="mb-1">
-                        {item.weather[0].main.includes("Rain") ? (
+                        {item.desc.includes("rain") ? (
                           <CloudRain size={35} />
-                        ) : item.weather[0].main.includes("Cloud") ? (
+                        ) : item.desc.includes("cloud") ? (
                           <Cloud size={35} />
                         ) : (
                           <CloudSun size={35} />
                         )}
                       </div>
-                      <p className="font-normal">{Math.round(item.main.temp)}°C</p>
-                      <p className="text-sm">{item.dt_txt.split(" ")[1].slice(0, 5)}</p>
-                      <p className="text-sm text-white/80">{item.weather[0].description}</p>
+                      <p className="font-normal">{item.temp}</p>
+                      <p className="text-sm">{item.time}</p>
+                      <p className="text-sm text-white/80 capitalize">{item.desc}</p>
                     </div>
                   ))}
                 </div>
